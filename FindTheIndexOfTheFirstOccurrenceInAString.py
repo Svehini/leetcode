@@ -1,22 +1,10 @@
 class Solution:
-    def check_rest(self, haystack, needle):
-        needle_len = len(needle)
-        n = 0
-        for i in range(len(haystack)):
-            if haystack[i] == needle[n]:
-                n+=1
-                if (n+1) > needle_len:
-                    return True
-            else:
-                return False
-
     def strStr(self, haystack: str, needle: str) -> int:
-        if needle not in haystack:
+        haystack_list = haystack.split(needle)
+        if haystack_list[0] == "":
+            return 0
+        elif len(haystack_list) > 1:
+            return len(haystack_list[0])
+        else:
             return -1
-        first_occur = -1
-        for i in range(len(haystack)):
-            if haystack[i] == needle[0]:
-                first_occur = i
-                if self.check_rest(haystack[i:], needle):
-                    return first_occur
-        return -1
+
