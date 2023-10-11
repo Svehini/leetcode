@@ -1,4 +1,17 @@
-# It "works", but it gets runtime Exeeded since it uses reccursion
+# This one works
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        this = 1
+        last = 0
+        for i in range(1, n+1):
+            this_saved = last
+            last = this
+            this += this_saved
+        return this
+
+
+
+# this one "works", but it gets runtime Exeeded since it uses reccursion
 class Solution:
     def addForTwos(self, n):
         if n > 1:
